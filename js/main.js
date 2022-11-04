@@ -17,7 +17,7 @@ const btnPrev = document.getElementById("slider-btn-prev");
 sliderImgEl.src = images[currentImgIndex];
 
 for (let i = 0; i < images.length; i++) {
-/*     sliderImgEl.innerHTML += `<img src="${images[i]}">`; */
+
     let sliderImgEl = document.createElement("img");
     sliderImgEl.src = images [i];
 
@@ -30,24 +30,28 @@ for (let i = 0; i < images.length; i++) {
 
 btnNext.addEventListener("click", function () {
 
-/*     let currentIndexP = (images [i]):nth-child; */
-    sliderImgEl.classList.remove("d-block");
+    const oldImgEl = document.querySelector(`.slider-img :nth-child(${currentImgIndex + 1})`);
+
+    oldImgEl.classList.remove("d-block");
 
     currentImgIndex++;
-
-    const lastIndexAv = images.length - 1;
     
-    if (currentImgIndex > lastIndexAv) {
-        currentImgIndex = lastIndexAv;
+    if (currentImgIndex > images.length - 1) {
+        currentImgIndex = 0;
     }
 
-    sliderImgEl.classList.add("d-block");
+    const newImgEl = document.querySelector(`.slider-img :nth-child(${currentImgIndex + 1})`);
+    
+    newImgEl.classList.add("d-block");
+
     sliderImgEl.src = images[currentImgIndex];
 })
 
 btnPrev.addEventListener("click", function () {
 
-    sliderImgEl.classList.remove("d-block");
+    const oldImgEl = document.querySelector(`.slider-img :nth-child(${currentImgIndex + 1})`);
+
+    oldImgEl.classList.remove("d-block");
 
     currentImgIndex--;
 
@@ -55,6 +59,9 @@ btnPrev.addEventListener("click", function () {
         currentImgIndex = 0;
     }
 
-    sliderImgEl.classList.add("d-block");
+    const newImgEl = document.querySelector(`.slider-img :nth-child(${currentImgIndex + 1})`);
+    
+    newImgEl.classList.add("d-block");
+
     sliderImgEl.src = images[currentImgIndex];
 })
