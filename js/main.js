@@ -28,8 +28,8 @@ for (let i = 0; i <= images.length - 1; i++) {
 
     sliderContainerEl.append(sliderImgEl);
 
-    const imgsEl = document.createElement("div");
-    imgsEl.classList.add("imgs");
+    const imgsEl = document.createElement("img");
+    imgsEl.src = images [i];
 
     if (i === 0) {
         imgsEl.classList.add("active");
