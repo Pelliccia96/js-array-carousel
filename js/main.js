@@ -13,6 +13,7 @@ let sliderImgEl = "";
 
 const btnNext = document.getElementById("slider-btn-next");
 const btnPrev = document.getElementById("slider-btn-prev");
+const imgsContainerEl = document.querySelector(".imgs-container");
 
 sliderImgEl.src = images[currentImgIndex];
 
@@ -26,6 +27,15 @@ for (let i = 0; i <= images.length - 1; i++) {
     }
 
     sliderContainerEl.append(sliderImgEl);
+
+    const imgsEl = document.createElement("div");
+    imgsEl.classList.add("imgs");
+
+    if (i === 0) {
+        imgsEl.classList.add("active");
+    }
+
+    imgsContainerEl.append( imgsEl);
 }
 
 btnNext.addEventListener("click", function () {
@@ -33,6 +43,9 @@ btnNext.addEventListener("click", function () {
     const oldImgEl = document.querySelector(`.slider-container :nth-child(${currentImgIndex + 1})`);
 
     oldImgEl.classList.remove("d-block");
+
+    const oldImgs = document.querySelector( `.imgs-container :nth-child(${ currentImgIndex + 1 })` );
+    oldImgs.classList.remove("active");
 
     currentImgIndex++;
     
@@ -43,6 +56,9 @@ btnNext.addEventListener("click", function () {
     const newImgEl = document.querySelector(`.slider-container :nth-child(${currentImgIndex + 1})`);
     
     newImgEl.classList.add("d-block");
+
+    const newImgs = document.querySelector( `.imgs-container :nth-child(${ currentImgIndex + 1 })` );
+    newImgs.classList.add( "active" );
 })
 
 btnPrev.addEventListener("click", function () {
@@ -50,6 +66,9 @@ btnPrev.addEventListener("click", function () {
     const oldImgEl = document.querySelector(`.slider-container :nth-child(${currentImgIndex + 1})`);
 
     oldImgEl.classList.remove("d-block");
+
+    const oldImgs = document.querySelector( `.imgs-container :nth-child(${ currentImgIndex + 1 })` );
+    oldImgs.classList.remove("active");
 
     currentImgIndex--;
 
@@ -60,4 +79,7 @@ btnPrev.addEventListener("click", function () {
     const newImgEl = document.querySelector(`.slider-container :nth-child(${currentImgIndex + 1})`);
     
     newImgEl.classList.add("d-block");
+
+    const newImgs = document.querySelector( `.imgs-container :nth-child(${ currentImgIndex + 1 })` );
+    newImgs.classList.add( "active" );
 })

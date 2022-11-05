@@ -33,3 +33,18 @@ img {
     border-radius: 50%;
     background-color: rgba(128, 128, 128, 0.6);
 }
+
+.imgs {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: white;
+    opacity: .2;
+    margin-left: .3rem;
+    margin-right: .3rem;
+}
+  
+.imgs.active {
+    opacity: 1;
+}
