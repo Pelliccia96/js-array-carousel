@@ -31,7 +31,7 @@ img {
     padding: 0.5rem 1rem;
     border: 2px solid black;
     border-radius: 50%;
-    background-color: rgba(128, 128, 128, 0.6);
+    background-color: white;
 }
 
 .imgs {
@@ -40,9 +40,9 @@ img {
     display: inline-block;
     border-radius: 50%;
     background-color: white;
-    opacity: .2;
-    margin-left: .3rem;
-    margin-right: .3rem;
+    opacity: 0.2;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
 }
   
 .imgs.active {
